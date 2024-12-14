@@ -6,7 +6,7 @@ const Hero = () => {
           <div className="container mx-auto px-4 text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-4">Dominion City Brampton</h1>
               <p className="text-xl md:text-2xl mb-8">Raising leaders that transform society</p>
-              <Link to="#connect"
+              <Link to="https://linktr.ee/dominioncitybrampton"
                     className="inline-block bg-white text-blue-600 py-3 px-8 rounded-full text-lg font-semibold hover:bg-blue-100 transition duration-300">
                   Join Our Community
               </Link>
