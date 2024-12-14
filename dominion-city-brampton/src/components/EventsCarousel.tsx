@@ -21,10 +21,10 @@ const EventsCarousel = () => {
   }
 
   return (
-      <section id="events" className="w-full py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Upcoming Events</h2>
-          <div className="relative max-w-4xl mx-auto">
+    <section id="events" className="py-16">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-8 text-center">Upcoming Events</h2>
+        <div className="relative">
           <div className="overflow-hidden">
             <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
               {events.map((event) => (
