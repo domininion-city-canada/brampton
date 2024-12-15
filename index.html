@@ -393,6 +393,74 @@
         .about-us h2 {
             text-align: center;
         }
+
+        /* Testimonies section styles */
+        .testimonies {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimonies h2 {
+            margin-bottom: 2rem;
+        }
+
+        .twitter-feed {
+            background-color: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .twitter-feed p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Carousel styles */
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            padding: 1rem;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-control-prev {
+            left: 1rem;
+        }
+
+        .carousel-control-next {
+            right: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -502,10 +570,40 @@
 
     <section class="special-features">
         <div class="container">
-            <a class="special-button" href="https://dominioncitycanada.churchcenter.com/people/forms/868630"
-               target="_blank">Join a Cell Group</a>
-            <a class="special-button" href="https://substack.com/@dominionmandate?r=1j2lfo&u" target="_blank">Daily
-                Devotional</a>
+            <a class="special-button" href="https://dominioncitycanada.churchcenter.com/people/forms/868630" target="_blank">Join a Cell Group</a>
+            <a class="special-button" href="https://substack.com/@dominionmandate?r=1j2lfo&u" target="_blank">Daily Devotional</a>
+            <a class="special-button" href="https://dominioncitycanada.churchcenter.com/people/forms/868977" target="_blank">Prayer Request</a>
+        </div>
+    </section>
+
+    <section class="testimonies" id="testimonies">
+        <div class="container">
+            <h2>Testimonies</h2>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="twitter-feed">
+                            <p>Testimony 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel dolor nec nulla facilisis.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="twitter-feed">
+                            <p>Testimony 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel dolor nec nulla facilisis.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="twitter-feed">
+                            <p>Testimony 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel dolor nec nulla facilisis.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control carousel-control-prev" data-slide="prev" href="#" role="button">
+                    &#10094;
+                </a>
+                <a class="carousel-control carousel-control-next" data-slide="next" href="#" role="button">
+                    &#10095;
+                </a>
+            </div>
         </div>
     </section>
 
@@ -637,6 +735,37 @@
     // Auto-slide every 5 seconds
     setInterval(() => {
         showSlide(currentIndex + 1);
+    }, 5000);
+
+    // Carousel functionality for testimonies
+    const testimonyCarousel = document.querySelector('.testimonies .carousel-inner');
+    const testimonyItems = testimonyCarousel.querySelectorAll('.carousel-item');
+    const testimonyPrevBtn = document.querySelector('.testimonies .carousel-control-prev');
+    const testimonyNextBtn = document.querySelector('.testimonies .carousel-control-next');
+    let testimonyIndex = 0;
+
+    function showTestimonySlide(index) {
+        if (index < 0) {
+            testimonyIndex = testimonyItems.length - 1;
+        } else if (index >= testimonyItems.length) {
+            testimonyIndex = 0;
+        } else {
+            testimonyIndex = index;
+        }
+        testimonyCarousel.style.transform = `translateX(-${testimonyIndex * 100}%)`;
+    }
+
+    testimonyPrevBtn.addEventListener('click', () => {
+        showTestimonySlide(testimonyIndex - 1);
+    });
+
+    testimonyNextBtn.addEventListener('click', () => {
+        showTestimonySlide(testimonyIndex + 1);
+    });
+
+    // Auto-slide every 5 seconds
+    setInterval(() => {
+        showTestimonySlide(testimonyIndex + 1);
     }, 5000);
 </script>
 </body>
